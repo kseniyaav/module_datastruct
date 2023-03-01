@@ -23,8 +23,3 @@ class Stack:
         if self.top is None:
             return None
         return self.top.data
-
-
-
-
-
