@@ -1,5 +1,5 @@
 import unittest
-from custom_queue import Queue, Node
+from src.custom_queue import Queue, Node
 
 class TestNode(unittest.TestCase):
     def test_init(self):

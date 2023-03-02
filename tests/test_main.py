@@ -1,5 +1,5 @@
 import unittest
-from main import Stack, Node
+from src.main import Stack
 
 
 class TestStack(unittest.TestCase):
