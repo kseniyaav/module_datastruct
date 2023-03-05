@@ -44,6 +44,8 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(q.tail.data, 4)
         self.assertIsNone(q.tail.next_node)
 
+
+
 if __name__ == '__main__':
     unittest.main()
 

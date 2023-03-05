@@ -14,5 +14,14 @@ class Queue:
             self.tail.next_node = new_node
             self.tail = new_node
 
+    def dequeue(self):
+        if self.head is None:
+            return None
+        popped = self.head.data
+        self.head = self.head.next_node
+        if self.head is None:
+            self.tail = None
+        return popped
+
 
 
