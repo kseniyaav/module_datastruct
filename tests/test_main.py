@@ -121,6 +121,39 @@ class TestLinkedList(unittest.TestCase):
         self.ll.insert_beginning({'id': 0})
         self.assertEqual(self.ll.print_ll(), ' {\'id\': 0} -> {\'id\': 1} -> {\'id\': 2} -> {\'id\': 3} -> None')
 
+    def test_to_list(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
+        ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+        ll.insert_beginning({'id': 0, 'username': 'serebro'})
+
+        expected_list = [{'id': 0, 'username': 'serebro'},
+                         {'id': 1, 'username': 'lazzy508509'},
+                         {'id': 2, 'username': 'mik.roz'},
+                         {'id': 3, 'username': 'mosh_s'}]
+
+        self.assertEqual(ll.to_list(), expected_list)
+
+    def test_get_data_by_id(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
+        ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+        ll.insert_beginning({'id': 0, 'username': 'serebro'})
+
+        # Тест: получение словаря существующего пользователя
+        user_data = ll.get_data_by_id(3)
+        self.assertEqual(user_data, {'id': 3, 'username': 'mosh_s'})
+
+        # Тест: попытка получения словаря несуществующего пользователя
+        user_data = ll.get_data_by_id(4)
+        self.assertIsNone(user_data)
+
+        # Тест: попытка получения словаря из пустого списка
+        ll = LinkedList()
+        user_data = ll.get_data_by_id(1)
+        self.assertIsNone(user_data)
 
 if __name__ == '__main__':
     unittest.main()
